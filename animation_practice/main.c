@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 struct Vertex{
     float x,y,z;
@@ -21,16 +22,31 @@ int main(int argc, char *argv[]){
 
     // Check if the file exists.
     if(file==NULL){
-        printf("File doesn't exist.\n");
+        printf("The file doesn't exists.\n");
         return 0;
     }
 
     char txt_line[200];
 
     // Read line by line
+    int i, vector_found;
+    char number[30];
     while(fgets(txt_line, sizeof(txt_line), file)){
-        printf("%s", txt_line);
+        //printf("%s | size: %", txt_line);
+        vector_found = 0;
+
+        for(i=0;i<100;i++){
+            if(txt_line[i]=='v' || txt_line[i]=='V'){
+                vector_found = 1;
+            }else if( (isdigit(txt_line[i]) || txt_line[i]=='.') && vector_found == 1){
+
+                printf("Number: %c. ", txt_line[i]);
+            }
+        }
+        printf("\n");
     }
+
+
 /*
     struct Vertex *v;
     int n,i;
@@ -42,7 +58,7 @@ int main(int argc, char *argv[]){
     for(i=0;i<n;i++)
         setVal((v+i), 2.0*i, 5.0+i, 3.0-i);
     for(i=0;i<n;i++)
-        printf("Yeih: %0.3f, %0.3f, %0.3f\n", (v+i)->x, (v+i)->y, (v+i)->z);
+        printf("Point: %0.3f, %0.3f, %0.3f\n", (v+i)->x, (v+i)->y, (v+i)->z);
     */
     fclose(file);
     return 0;
