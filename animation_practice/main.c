@@ -30,20 +30,24 @@ int main(int argc, char *argv[]){
 
     // Read line by line
     int i, vector_found;
-    char number[30];
+    double a, b, c;
+    char letter_check [2] = {0};
+   
     while(fgets(txt_line, sizeof(txt_line), file)){
+        
+        
         //printf("%s | size: %", txt_line);
         vector_found = 0;
 
         for(i=0;i<100;i++){
             if(txt_line[i]=='v' || txt_line[i]=='V'){
                 vector_found = 1;
-            }else if( (isdigit(txt_line[i]) || txt_line[i]=='.') && vector_found == 1){
-
-                printf("Number: %c. ", txt_line[i]);
+                sscanf(txt_line, "%[vV]%lf%lf%lf", letter_check,&a, &b, &c);
+                printf("\nA: %lf, B: %lf, C: %lf", a, b, c);
+                break;
             }
         }
-        printf("\n");
+       
     }
 
 
