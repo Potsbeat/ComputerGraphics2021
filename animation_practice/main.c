@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <vertex_list.h>
 
 struct Vertex{
     float x,y,z;
@@ -78,7 +79,12 @@ void setVal(struct Vertex * vert, float x, float y, float z){
     return vert->coord;
 } */
 
+
+
+
 /*
+ * EXAMPLE OF STRUCTS USAGE IN C
+ * 
 struct person {
    int age;
    float weight;
