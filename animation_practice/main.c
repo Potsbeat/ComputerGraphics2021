@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include <vertex_list.h>
+//#include "vertex_list.h"
 
 struct Vertex{
     float x,y,z;

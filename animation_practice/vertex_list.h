@@ -36,6 +36,4 @@ struct VertexList* newVertexList(){
     return lista;
 }
 
-int main(){
-    VertexList lista;
-}
+
